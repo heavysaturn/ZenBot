@@ -1,6 +1,6 @@
-from zenbot.controllers.example import ExampleController
-from zenbot.states.state import State
-from zenbot.utils.math import velocity2D, distance2D
+from bot.controllers.example import ExampleController
+from bot.states.state import State
+from bot.Utilities.math import velocity2D, distance2D
 
 
 class BallChase(State):

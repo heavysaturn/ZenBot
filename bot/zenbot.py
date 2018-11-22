@@ -1,19 +1,17 @@
-import random
-
 from rlbot.agents.base_agent import BaseAgent, SimpleControllerState
 from rlbot.utils.structures.game_data_struct import GameTickPacket
 
-from zenbot.elements.gameobjects import GameObject
-from zenbot.states.ballchase import BallChase
-from zenbot.utils.math import rotator_to_matrix, to_local
+from bot.elements.gameobjects import GameObject
+from bot.states.ballchase import BallChase
+from bot.Utilities.math import rotator_to_matrix, to_local
 
 
 class ZenBot(BaseAgent):
 
-    def _get_vector(self, target: str, vector_type, index = None):
+    def _get_vector(self, target: str, vector_type, index=None):
 
         # First set the target, i.e. the game ball
-        if index:
+        if index is not None:
             target = getattr(self.game, target)[index]
         else:
             target = getattr(self.game, target)
