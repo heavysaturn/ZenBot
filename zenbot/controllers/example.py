@@ -1,7 +1,7 @@
 import math
 import time
 
-from ZenBot.utils.math import velocity2D, distance2D
+from zenbot.utils.math import velocity2D, distance2D
 from .controller import Controller
 
 

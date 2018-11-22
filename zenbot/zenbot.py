@@ -3,9 +3,9 @@ import random
 from rlbot.agents.base_agent import BaseAgent, SimpleControllerState
 from rlbot.utils.structures.game_data_struct import GameTickPacket
 
-from ZenBot.elements.gameobjects import GameObject
-from ZenBot.states.ballchase import BallChase
-from ZenBot.utils.math import rotator_to_matrix, to_local
+from zenbot.elements.gameobjects import GameObject
+from zenbot.states.ballchase import BallChase
+from zenbot.utils.math import rotator_to_matrix, to_local
 
 
 class ZenBot(BaseAgent):

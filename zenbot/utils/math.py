@@ -1,6 +1,6 @@
 import math
 
-from ZenBot.elements.vectors import Vector3
+from zenbot.elements.vectors import Vector3
 
 
 def rotator_to_matrix(our_object):
