@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 "rlbot" = "==1.*"
+"RLUtilities" = "*"
 
 [dev-packages]
 "flake8" = "*"
@@ -14,5 +15,5 @@ name = "pypi"
 "flake8-tidy-imports" = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
 

@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "98fe8126119a0ea006bce7a340a23f63140263057ae9afdee2d59563abf0b4d9"
+            "sha256": "a7b9f5657b33bf3b819b4db9b8841e9c356b2b06714054aa4a18a148edf72757"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.6"
         },
         "sources": [
             {
@@ -76,6 +76,13 @@
             ],
             "index": "pypi",
             "version": "==1.5.1"
+        },
+        "rlutilities": {
+            "hashes": [
+                "sha256:b607bc200d561607ad34bfc35193a1e4dba22b68c9512236584ec9dafb9da5ec"
+            ],
+            "index": "pypi",
+            "version": "==0.0.8"
         }
     },
     "develop": {
