@@ -10,4 +10,3 @@ Oops! I didn't actually write it yet, but I'm working on it. Hold tight!
 - Bot behavior is controlled by `zenbot/zenbot.py`
 - Bot appearance is controlled by `zenbot/appearance.cfg`
 
-See https://github.com/RLBot/RLBotPythonExample/wiki for documentation and tutorials.

@@ -4,6 +4,8 @@ from rlbot.utils.structures.game_data_struct import GameTickPacket
 from RLUtilities.GameInfo import GameInfo
 
 from bot.states.gotogoal import GoToGoal
+from bot.states.takeshot import TakeShot
+from bot.utils.draw import Draw
 
 
 class ZenBot(BaseAgent):
@@ -12,21 +14,24 @@ class ZenBot(BaseAgent):
         super().__init__(name, team, index)
         self.info = GameInfo(index, team)
         self.controls = SimpleControllerState()
-        self.state = None
+        self.state = TakeShot(self, powershot=True)
         self.own_goal = True
         self.counter = 0
+        self.draw = Draw(self)
+        self.next_state = GoToGoal(self)
 
     def get_output(self, packet: GameTickPacket) -> SimpleControllerState:
 
         self.preprocess(packet)
 
-        if self.state is None:
-            self.state = GoToGoal(self)
+        # Execute the state
         if not self.state.expired:
-            self.state.execute()
-#        else:
-#            self.own_goal = not self.own_goal
-#            self.state = GoToGoal(self, self.own_goal)
+            self.controls = self.state.execute()
+        else:
+            state = self.state
+            self.state = self.next_state
+            self.next_state = state
+
         return self.controls
 
     def preprocess(self, packet):

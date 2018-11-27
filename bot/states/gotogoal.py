@@ -1,13 +1,10 @@
 import math
-import random
 
 from RLUtilities.LinearAlgebra import vec3, dot
 from RLUtilities.Maneuvers import Drive
 from rlbot.agents.base_agent import SimpleControllerState
 
-from bot.constants import Colors
 from bot.states.state import State
-from bot.util.draw import draw_waypoint
 
 
 class GoToGoal(State):
@@ -40,8 +37,8 @@ class GoToGoal(State):
         # Drive towards the goal.
         if not self.action.finished:
             self.action.step(0.01666)
-            self.agent.controls = self.action.controls
-            draw_waypoint(self.action.target_pos, Colors.yellow, self.agent)
+            self.controls = self.action.controls
+            self.agent.waypoint(self.action.target_pos)
 
         # We have reached the goal, time to turn around
         else:
@@ -49,14 +46,16 @@ class GoToGoal(State):
             phi = math.atan2(delta_local[1], delta_local[0])
             if abs(phi) > 0.3:
                 print(phi)
-                self.agent.controls.steer = -1
-                self.agent.controls.throttle = 0
-                self.agent.controls.slide = True
-                self.agent.controls.boost = False
+                self.controls.steer = -1
+                self.controls.throttle = 0
+                self.controls.slide = True
+                self.controls.boost = False
             else:
                 print(phi)
-                self.agent.controls = SimpleControllerState()
+                self.controls = SimpleControllerState()
                 self.expired = True
+
+        return self.controls
 
 
 
